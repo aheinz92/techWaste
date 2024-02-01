@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="bg-white p-4 rounded-lg shadow-md mb-4">
+
+    <!-- Overlay -->
+<div id="dropdownOverlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"></div>
+
+    <!-- Search Filter Bar -->
+    <div class="flex space-x-2 relative">
+        <div id="locationDropdown" class="dropdown bg-gray-200 p-2 rounded flex-1">
+            <button onclick="event.stopPropagation()" class="dropbtn">
+                <i class="fa-solid fa-location-arrow mr-1"></i>
+                Location
+            </button>
+            <div id="locationContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded">
+                <!-- Location Dropdown Content Here -->
+                <p onclick="event.stopPropagation()" class="p-2">Dropdown Content...</p>
+            </div>
+        </div>
+        <div id="distanceDropdown" class="dropdown bg-gray-200 p-2 rounded flex-1">
+            <button onclick="event.stopPropagation()" class="dropbtn">
+                <i class="fa-solid fa-arrows-left-right mr-1"></i>
+                Distance
+            </button>
+            <div id="distanceContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded">
+                <!-- Distance Dropdown Content Here -->
+                <p onclick="event.stopPropagation()" class="p-2">Dropdown Content...</p>
+            </div>
+        </div>
+        <div id="tagDropdown" class="dropdown bg-gray-200 p-2 rounded flex-1">
+            <button onclick="event.stopPropagation()" class="dropbtn">
+                <i class="fa-solid fa-filter mr-1"></i>
+                Tags
+            </button>
+            <div id="tagContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded">
+                <!-- Tags Dropdown Content Here -->
+                <p onclick="event.stopPropagation()" class="p-2">Dropdown Content...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- List of Resources -->
+<div class="space-y-4">
+    <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="font-semibold text-lg">Resource Title</h2>
+        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
+        <!-- Add more details as needed -->
+    </div>
+    <!-- Repeat for other resources -->
+    <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="font-semibold text-lg">Resource Title</h2>
+        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
+        <!-- Add more details as needed -->
+    </div>
+    <!-- Repeat for other resources -->
+    <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="font-semibold text-lg">Resource Title</h2>
+        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
+        <!-- Add more details as needed -->
+    </div>
+    <!-- Repeat for other resources -->
+    <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="font-semibold text-lg">Resource Title</h2>
+        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
+        <!-- Add more details as needed -->
+    </div>
+    <!-- Repeat for other resources -->
+    <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="font-semibold text-lg">Resource Title</h2>
+        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
+        <!-- Add more details as needed -->
+    </div>
+    <!-- Repeat for other resources -->
+    <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="font-semibold text-lg">Resource Title</h2>
+        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
+        <!-- Add more details as needed -->
+    </div>
+    <!-- Repeat for other resources -->
+    <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="font-semibold text-lg">Resource Title</h2>
+        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
+        <!-- Add more details as needed -->
+    </div>
+    <!-- Repeat for other resources -->
+    <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="font-semibold text-lg">Resource Title</h2>
+        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
+        <!-- Add more details as needed -->
+    </div>
+    <!-- Repeat for other resources -->
+</div>
+{% endblock %}
