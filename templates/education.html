@@ -2,6 +2,10 @@
 
 {% block content %}
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <!-- Logo at the top -->
+        <div class="bg-transparent p-4 pt-14 pb-10">
+            <img src="{{ url_for('static', filename='images/logo1 wide.png') }}" alt="Logo" class="block mx-auto" style="max-width:100%; height:auto;">
+        </div>
     <!-- Example Card -->
     <div class="bg-white rounded-lg shadow-md p-5">
         <h2 class="font-semibold text-xl mb-2">Card Title</h2>
