@@ -1,16 +1,31 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <!-- Logo at the top -->
-        <div class="bg-transparent p-4 pt-14 pb-10">
-            <img src="{{ url_for('static', filename='images/logo1 wide.png') }}" alt="Logo" class="block mx-auto" style="max-width:100%; height:auto;">
-        </div>
-    <!-- Example Card -->
-    <div class="bg-white rounded-lg shadow-md p-5">
-        <h2 class="font-semibold text-xl mb-2">Card Title</h2>
-        <p class="text-gray-700">This is an example of a card. Customize it with your content.</p>
+    <div class="bg-transparent p-4 pt-14 pb-10">
+        <img src="{{ url_for('static', filename='images/logo1 wide.png') }}" alt="Logo" class="block mx-auto" style="max-width:100%; height:auto;">
     </div>
-    <!-- Repeat for other cards -->
+    <!-- Card 1 -->
+    <div class="rounded-lg shadow-md p-5 relative" style="background-image: url('{{ url_for('static', filename='images/ocean.png') }}'); background-size: cover; background-position: center;">
+        <h2 class="font-semibold text-xl mb-2 z-10 relative" style="color: white; text-shadow: 2px 2px 4px #000000;">Micro-Lesson #1</h2>
+        <p class="z-10 relative" style="color: white; text-shadow: 2px 2px 4px #000000;">Where does technology end up, and what does it do to our environment?</p>
+        <div class="absolute bottom-0 left-0 right-0 rounded-b-lg" style="height: 55%; background: rgba(0, 0, 0, 0.2);"></div>
+    </div>
+    <!-- Card 2 -->
+    <div class="rounded-lg shadow-md p-5 relative" style="background-image: url('{{ url_for('static', filename='images/design.png') }}'); background-size: cover; background-position: center;">
+        <h2 class="font-semibold text-xl mb-2 z-10 relative" style="color: white; text-shadow: 2px 2px 4px #000000;">Micro-Lesson #2</h2>
+        <p class="z-10 relative" style="color: white; text-shadow: 2px 2px 4px #000000;">Consumer habits and design practices - where they intersect</p>
+        <div class="absolute bottom-0 left-0 right-0 rounded-b-lg" style="height: 55%; background: rgba(0, 0, 0, 0.2);"></div>
+    </div>
+    <!-- Card 3 -->
+    <div class="rounded-lg shadow-md p-5 relative" style="background-image: url('{{ url_for('static', filename='images/charts.png') }}'); background-size: cover; background-position: center;">
+        <h2 class="font-semibold text-xl mb-2 z-10 relative" style="color: white; text-shadow: 2px 2px 4px #000000;">Micro-Lesson #3</h2>
+        <p class="z-10 relative" style="color: white; text-shadow: 2px 2px 4px #000000;">Here's the numbers! Everything you need to know; it's easy to make an impact.</p>
+        <div class="absolute bottom-0 left-0 right-0 rounded-b-lg" style="height: 55%; background: rgba(0, 0, 0, 0.2);"></div>
+    </div>
+    <div class="text-center italic text-gray-400 mt-1 text-sm">
+        <p>To access everything we've got, check out the three introductory pieces first!</p>
+    </div>
 </div>
 {% endblock %}

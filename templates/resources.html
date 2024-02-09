@@ -9,33 +9,88 @@
     <!-- Search Filter Bar -->
     <div class="flex space-x-2 relative">
         <div id="locationDropdown" class="dropdown bg-gray-200 p-2 rounded flex-1">
-            <button onclick="event.stopPropagation()" class="dropbtn">
+            <button class="dropbtn">
                 <i class="fa-solid fa-location-arrow mr-1"></i>
                 Location
             </button>
             <div id="locationContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded">
                 <!-- Location Dropdown Content Here -->
-                <p onclick="event.stopPropagation()" class="p-2">Dropdown Content...</p>
+                <p class="p-2">Dropdown Content...</p>
             </div>
         </div>
         <div id="distanceDropdown" class="dropdown bg-gray-200 p-2 rounded flex-1">
-            <button onclick="event.stopPropagation()" class="dropbtn">
+            <button class="dropbtn">
                 <i class="fa-solid fa-arrows-left-right mr-1"></i>
                 Distance
             </button>
-            <div id="distanceContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded">
-                <!-- Distance Dropdown Content Here -->
-                <p onclick="event.stopPropagation()" class="p-2">Dropdown Content...</p>
+            <div id="distanceContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded p-2">
+                <label for="distanceSlider" class="block text-sm font-medium text-gray-700">Select distance (miles):</label>
+                <div class="relative pt-1">
+                    <input type="range" id="distanceSlider" name="distanceSlider" min="0" max="100" value="50" step="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 my-2 relative z-10">
+                    <div class="flex justify-between px-2 mb-1">
+                        <span class="text-xs text-gray-500">0 mi.</span>
+                        <span class="text-xs text-gray-500">50 mi.</span>
+                        <span class="text-xs text-gray-500">100 mi.</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="tagDropdown" class="dropdown bg-gray-200 p-2 rounded flex-1">
-            <button onclick="event.stopPropagation()" class="dropbtn">
+            <button class="dropbtn">
                 <i class="fa-solid fa-filter mr-1"></i>
                 Tags
             </button>
-            <div id="tagContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded">
-                <!-- Tags Dropdown Content Here -->
-                <p onclick="event.stopPropagation()" class="p-2">Dropdown Content...</p>
+            <div id="tagContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded flex justify-center items-center">
+                <div class="grid grid-cols-2 gap-4 p-4">
+                    <div>
+                        <input type="checkbox" id="tag1" name="tag1">
+                        <label for="tag1">Recycling Center</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tag2" name="tag2">
+                        <label for="tag2">Local Trading</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tag3" name="tag3">
+                        <label for="tag3">Store or Business</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tag4" name="tag4">
+                        <label for="tag4">Service</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tag5" name="tag5">
+                        <label for="tag5">Older Technology</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tag6" name="tag6">
+                        <label for="tag6">Newer Technology</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tag7" name="tag7">
+                        <label for="tag7">Consumer Hardware</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tag8" name="tag8">
+                        <label for="tag8">General Hardware</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tag9" name="tag9">
+                        <label for="tag9">Government</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tag10" name="tag10">
+                        <label for="tag10">Individual</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tag11" name="tag11">
+                        <label for="tag11">Paid</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tag12" name="tag12">
+                        <label for="tag12">Free</label>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -45,7 +100,10 @@
 <!-- List of Resources -->
 <div class="space-y-4">
     <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">Resource Title</h2>
+        <h2 class="font-semibold text-lg">King County Electronics Recycling Plant</h2>
+        <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Government</div><div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Free</div><div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Consumer Hardware</div><div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Recycling Service</div>
+        </div>
         <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
         <!-- Add more details as needed -->
     </div>
