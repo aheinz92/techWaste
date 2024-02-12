@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="rounded-lg shadow-md p-5" style="background-image: url('{{ url_for('static', filename='images/design.png') }}'); background-size: cover; background-position: center; height: 200px;"></div>
+<div class="rounded-lg p-5 relative mt-5">
+    <h1 class="font-bold text-3xl mb-4">Products and Psychology</h1>
+    <h3 class="text-xl mb-2">Consumer habits and design practices - where they intersect</h3>
+    <p class="italic text-black text-right"><i class="fa-solid fa-clock"></i> ~10 min. read</p>
+    <br>
+    <div class="text-black mt-4 space-y-4">
+        <p>Understanding the psychological underpinnings of consumer behavior is crucial in today's market. This lesson explores how product design influences consumer habits and how businesses can harness the power of psychology to create more engaging and effective products.</p>
+        <p>We delve into the principles of psychological design, examining how colors, shapes, and textures can evoke emotions and drive decision-making. By analyzing case studies of successful products, we uncover the subtle yet powerful ways design can affect our perceptions and choices.</p>
+        <p>Moreover, we discuss the ethical considerations of using psychology in product design. It's important to balance business objectives with consumer well-being, ensuring that products not only meet the needs of the market but also contribute positively to users' lives.</p>
+        <p>Join us as we bridge the gap between psychology and product design. Discover how understanding the human mind can lead to innovative solutions that resonate with consumers and stand out in a crowded marketplace.</p>
+        <br>
+        <p class="text-gray-500 italic mt-6">Thanks for exploring this lesson! Check out some of the others to continue your journey.</p>
+        <br>
+        <div class="flex justify-between mt-8">
+            <a href="{{ url_for('lesson1') }}" class="text-blue-500 italic hover:text-blue-700"><i class="fa-solid fa-arrow-left"></i> Prev. lesson</a>
+            <a href="{{ url_for('lesson3') }}" class="text-blue-500 italic hover:text-blue-700">Next lesson <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+{% endblock %}

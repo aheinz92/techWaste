@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="rounded-lg shadow-md p-5" style="background-image: url('{{ url_for('static', filename='images/charts.png') }}'); background-size: cover; background-position: center; height: 200px;"></div>
+<div class="rounded-lg p-5 relative mt-5">
+    <h1 class="font-bold text-3xl mb-4">Decisions with Data</h1>
+    <h3 class="text-xl mb-2">Here's the numbers! Everything you need to know; it's easy to make an impact.</h3>
+    <p class="italic text-black text-right"><i class="fa-solid fa-clock"></i> ~7 min. read</p>
+    <br>
+    <div class="text-black mt-4 space-y-4">
+        <p>Data-driven decision-making is transforming industries across the globe. This lesson explores how leveraging data can lead to more informed, effective decisions. We'll dive into the basics of data analysis, the importance of data integrity, and how to interpret data to make strategic decisions.</p>
+        <p>Through real-world examples, we'll see how businesses use data to predict trends, understand customer behavior, and optimize operations. We'll also discuss the tools and technologies that are essential for analyzing data, from simple spreadsheets to complex data visualization software.</p>
+        <p>But it's not just businesses that benefit from data. We'll examine how individuals can use data to make personal decisions about health, finance, and more. Plus, we'll touch on the ethical considerations of data usage, including privacy concerns and the potential for data manipulation.</p>
+        <p>Join us as we uncover the power of data in decision-making. Whether you're a business leader, a data analyst, or just curious about how data affects our lives, this lesson will provide you with the insights you need to make informed decisions in a data-driven world.</p>
+        <br>
+        <p class="text-gray-500 italic mt-6">Thanks for exploring this lesson! Check out some of the others to continue your journey.</p>
+        <br>
+        <div class="flex justify-between mt-8">
+            <a href="{{ url_for('lesson2') }}" class="text-blue-500 italic hover:text-blue-700"><i class="fa-solid fa-arrow-left"></i> Prev. lesson</a>
+            <a href="{{ url_for('lesson3') }}" class="text-blue-500 italic hover:text-blue-700">Next lesson <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+{% endblock %}

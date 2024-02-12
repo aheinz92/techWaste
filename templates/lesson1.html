@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="rounded-lg shadow-md p-5" style="background-image: url('{{ url_for('static', filename='images/ocean.png') }}'); background-size: cover; background-position: center; height: 200px;"></div>
+<div class="rounded-lg p-5 relative mt-5">
+    <h1 class="font-bold text-3xl mb-4">Effects on the Earth</h1>
+    <h3 class="text-xl mb-2">Where does technology end up, and what does it do to our environment?</h3>
+    <p class="italic text-black text-right"><i class="fa-solid fa-clock"></i> ~5 min. read</p>
+    <br>
+    <div class="text-black mt-4 space-y-4">
+        <p>In today's fast-paced world, technology evolves at an unprecedented rate. But have we ever paused to consider the environmental footprint of these advancements? This lesson delves into the lifecycle of technology products, from their creation to their ultimate disposal, and the impact they have on our planet.</p>
+        <p>As we explore the journey of a single electronic device, we uncover the harsh realities of e-waste and its consequences on the earth's ecosystems. The production processes, often reliant on rare earth minerals, contribute significantly to environmental degradation, while the disposal of these gadgets introduces hazardous substances into our soil and waterways.</p>
+        <p>However, it's not all doom and gloom. This lesson also highlights innovative solutions and sustainable practices that can mitigate these effects. From recycling initiatives to the development of biodegradable materials, we explore how technology and environmental responsibility can coexist harmoniously.</p>
+        <p>Join us as we navigate through the complexities of technological progress and its environmental implications. Together, we can pave the way for a more sustainable future, where technology serves not only our needs but also the health of our planet.</p>
+        <br>
+        <p class="text-gray-500 italic mt-6">Thanks for exploring this lesson! Check out some of the others to continue your journey.</p>
+        <br>
+        <div class="flex justify-between mt-8">
+            <a href="{{ url_for('lesson1') }}" class="text-blue-500 italic hover:text-blue-700"><i class="fa-solid fa-arrow-left"></i> Prev. lesson</a>
+            <a href="{{ url_for('lesson2') }}" class="text-blue-500 italic hover:text-blue-700">Next lesson <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<h2 class="text-right mr-2 text-3xl font-bold">Resources</h2>
+<br>
 <div class="bg-white p-4 rounded-lg shadow-md mb-4">
 
     <!-- Overlay -->
@@ -13,9 +15,16 @@
                 <i class="fa-solid fa-location-arrow mr-1"></i>
                 Location
             </button>
-            <div id="locationContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded">
-                <!-- Location Dropdown Content Here -->
-                <p class="p-2">Dropdown Content...</p>
+            <div id="locationContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded p-2">
+                <input type="text" placeholder="Start typing your city..." class="p-2 w-full bg-gray-200 rounded p-2">
+                <select class="p-2 w-full mt-1 bg-gray-200 rounded p-2">
+                    <option value="">Or, choose from a list:</option>
+                    <option value="Seattle, WA">Seattle, WA</option>
+                    <option value="Raleigh, NC">Raleigh, NC</option>
+                    <option value="New York, NY">New York, NY</option>
+                    <option value="San Francisco, CA">San Francisco, CA</option>
+                    <option value="Portland, OR">Portland, OR</option>
+                </select>
             </div>
         </div>
         <div id="distanceDropdown" class="dropdown bg-gray-200 p-2 rounded flex-1">
@@ -98,57 +107,53 @@
 
 
 <!-- List of Resources -->
+
 <div class="space-y-4">
     <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">King County Electronics Recycling Plant</h2>
+        <h2 class="font-semibold text-lg">GreenTech Innovations</h2>
         <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Government</div><div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Free</div><div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Consumer Hardware</div><div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Recycling Service</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Newer Technology</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Service</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Free</div>
         </div>
-        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
-        <!-- Add more details as needed -->
+        <p>GreenTech Innovations offers cutting-edge, eco-friendly technology solutions. Our services are designed to reduce environmental impact and promote sustainability. Visit us for more information.</p>
     </div>
-    <!-- Repeat for other resources -->
     <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">Resource Title</h2>
-        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
-        <!-- Add more details as needed -->
+        <h2 class="font-semibold text-lg">EcoFriendly Gadgets</h2>
+        <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Consumer Hardware</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Older Technology</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Paid</div>
+        </div>
+        <p>Explore our range of eco-friendly gadgets designed to make your life greener. From solar-powered chargers to biodegradable phone cases, find everything you need to start your sustainable journey.</p>
     </div>
-    <!-- Repeat for other resources -->
     <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">Resource Title</h2>
-        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
-        <!-- Add more details as needed -->
+        <h2 class="font-semibold text-lg">Local Swap Meet</h2>
+        <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Local Trading</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Individual</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Free</div>
+        </div>
+        <p>Join our local swap meet and exchange goods with your community. A great way to recycle and find new treasures without spending a dime. Check our schedule for the next event.</p>
     </div>
-    <!-- Repeat for other resources -->
     <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">Resource Title</h2>
-        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
-        <!-- Add more details as needed -->
+        <h2 class="font-semibold text-lg">Tech Repair Services</h2>
+        <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Service</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Consumer Hardware</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Paid</div>
+        </div>
+        <p>Don't throw away your old gadgets! Our tech repair services can breathe new life into them, saving you money and reducing waste. Contact us for a quote today.</p>
     </div>
-    <!-- Repeat for other resources -->
     <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">Resource Title</h2>
-        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
-        <!-- Add more details as needed -->
+        <h2 class="font-semibold text-lg">Sustainable Living Hub</h2>
+        <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Recycling Center</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Service</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Free</div>
+            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">General Hardware</div>
+        </div>
+        <p>Our Sustainable Living Hub offers resources and services for those looking to adopt a greener lifestyle. From recycling to eco-friendly home solutions, we're here to help.</p>
     </div>
-    <!-- Repeat for other resources -->
-    <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">Resource Title</h2>
-        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
-        <!-- Add more details as needed -->
-    </div>
-    <!-- Repeat for other resources -->
-    <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">Resource Title</h2>
-        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
-        <!-- Add more details as needed -->
-    </div>
-    <!-- Repeat for other resources -->
-    <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">Resource Title</h2>
-        <p>Description with all necessary details. Include links, icons, and any relevant information.</p>
-        <!-- Add more details as needed -->
-    </div>
-    <!-- Repeat for other resources -->
 </div>
 {% endblock %}
