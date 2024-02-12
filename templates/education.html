@@ -7,7 +7,7 @@
         <img src="{{ url_for('static', filename='images/logo1 wide.png') }}" alt="Logo" class="block mx-auto" style="max-width:100%; height:auto;">
     </div>
     <!-- Card 1 -->
-    <a href="{{ url_for('lesson1') }}"> <class="block">
+    <a href="{{ url_for('lesson1') }}" class="block">
         <div class="rounded-lg shadow-md p-5 relative" style="background-image: url('{{ url_for('static', filename='images/ocean.png') }}'); background-size: cover; background-position: center;">
             <h2 class="font-semibold text-xl mb-2 z-10 relative" style="color: white; text-shadow: 2px 2px 4px #000000;">Effects on the Earth</h2>
             <p class="z-10 relative leading-tight" style="color: white; text-shadow: 2px 2px 4px #000000;">Where does technology end up, and what does it do to our environment?</p>
@@ -17,21 +17,25 @@
         </div>
     </a>
     <!-- Card 2 -->
-    <div class="rounded-lg shadow-md p-5 relative" style="background-image: url('{{ url_for('static', filename='images/design.png') }}'); background-size: cover; background-position: center;">
-        <h2 class="font-semibold text-xl mb-2 z-10 relative" style="color: white; text-shadow: 2px 2px 4px #000000;">Products and Psychology</h2>
-        <p class="z-10 relative leading-tight" style="color: white; text-shadow: 2px 2px 4px #000000;">Consumer habits and design practices - where they intersect</p>
-        <div class="my-4"></div> <!-- Added buffer space -->
-        <div class="absolute bottom-0 left-0 right-0 rounded-b-lg" style="height: 60%; background: rgba(0, 0, 0, 0.2);"></div>
-        <p class="absolute bottom-1 right-2 z-10 text-white text-shadow italic" style="text-shadow: 2px 2px 4px #000000;"><i class="fa-solid fa-clock"></i> ~10 min. read</p>
-    </div>
+    <a href="{{ url_for('lesson2') }}" class="block">
+        <div class="rounded-lg shadow-md p-5 relative" style="background-image: url('{{ url_for('static', filename='images/design.png') }}'); background-size: cover; background-position: center;">
+            <h2 class="font-semibold text-xl mb-2 z-10 relative" style="color: white; text-shadow: 2px 2px 4px #000000;">Products and Psychology</h2>
+            <p class="z-10 relative leading-tight" style="color: white; text-shadow: 2px 2px 4px #000000;">Consumer habits and design practices - where they intersect</p>
+            <div class="my-4"></div> <!-- Added buffer space -->
+            <div class="absolute bottom-0 left-0 right-0 rounded-b-lg" style="height: 60%; background: rgba(0, 0, 0, 0.2);"></div>
+            <p class="absolute bottom-1 right-2 z-10 text-white text-shadow italic" style="text-shadow: 2px 2px 4px #000000;"><i class="fa-solid fa-clock"></i> ~10 min. read</p>
+        </div>
+    </a>
     <!-- Card 3 -->
-    <div class="rounded-lg shadow-md p-5 relative" style="background-image: url('{{ url_for('static', filename='images/charts.png') }}'); background-size: cover; background-position: center;">
-        <h2 class="font-semibold text-xl mb-2 z-10 relative" style="color: white; text-shadow: 2px 2px 4px #000000;">Decisions with Data</h2>
-        <p class="z-10 relative leading-tight" style="color: white; text-shadow: 2px 2px 4px #000000;">Here's the numbers! Everything you need to know; it's easy to make an impact.</p>
-        <div class="my-4"></div> <!-- Added buffer space -->
-        <div class="absolute bottom-0 left-0 right-0 rounded-b-lg" style="height: 60%; background: rgba(0, 0, 0, 0.2);"></div>
-        <p class="absolute bottom-1 right-2 z-10 text-white text-shadow italic" style="text-shadow: 2px 2px 4px #000000;"><i class="fa-solid fa-clock"></i> ~7 min. read</p>
-    </div>
+    <a href="{{ url_for('lesson3') }}" class="block">
+        <div class="rounded-lg shadow-md p-5 relative" style="background-image: url('{{ url_for('static', filename='images/charts.png') }}'); background-size: cover; background-position: center;">
+            <h2 class="font-semibold text-xl mb-2 z-10 relative" style="color: white; text-shadow: 2px 2px 4px #000000;">Decisions with Data</h2>
+            <p class="z-10 relative leading-tight" style="color: white; text-shadow: 2px 2px 4px #000000;">Here's the numbers! Everything you need to know; it's easy to make an impact.</p>
+            <div class="my-4"></div> <!-- Added buffer space -->
+            <div class="absolute bottom-0 left-0 right-0 rounded-b-lg" style="height: 60%; background: rgba(0, 0, 0, 0.2);"></div>
+            <p class="absolute bottom-1 right-2 z-10 text-white text-shadow italic" style="text-shadow: 2px 2px 4px #000000;"><i class="fa-solid fa-clock"></i> ~7 min. read</p>
+        </div>
+    </a>
 
     
     <div class="text-center italic text-gray-400 mt-1 text-sm">
