@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+
+    <!-- extra logo -->
+    <div class="bg-transparent">
+        <img src="{{ url_for('static', filename='images/logo1 stacked.png') }}" alt="Logo" class="block mx-auto" style="width:250px; height:auto;">
+    </div>
+
+    <!-- welcome text -->
+    <p class="italic text-2xl text-center p-2">Welcome to <span class="text-blue-500">Tech</span><span class="text-green-500">Plan</span>!</p>
+
+    <!-- introduction text -->
+    <div class="text-justify text-gray-600">
+        <p class="text-left italic text-xl text-black pl-10">
+            What is E-waste?
+        </p>
+        <p class="p-2 px-5">
+            E-waste is all about the gadgets we love – like smartphones, laptops, and TVs – finding a second life instead of harming our planet. 
+            Let's explore how we can make a difference by recycling and responsibly disposing of our electronics, keeping our environment safe and vibrant for future adventures!
+        </p>
+
+        <p class="text-center italic text-xl text-black">
+            Who are we?
+        </p>
+        <p class="p-2 px-5">
+            We're a group of students from Seattle's University of Washington who are developing a simple, accessible, and seamless tool to both raise awareness around the mechanisms and impacts of electronic waste 
+            and to connect people to providers of tools and services to make it easy to use and dispose of technology sustainably.
+        </p>
+
+        <p class="text-right italic text-xl text-black pr-10">
+            How to use this site
+        </p>
+        <p class="p-2 px-5">
+            In the left sidebar, you can find a collection of <strong><em>educational topics</em></strong> to provide you with a fast and digestible introduction to what's going on with "e-waste" and why it matters. 
+            Then, explore our searchable index of sustainability <strong><em>resources</em></strong>, curated for several of the major cities in the United States, to easily find what suits your needs.
+        </p>
+    </div>
+
+    <!-- home page image -->
+    <div class="rounded-lg shadow-md p-5 relative" style="background-image: url('{{ url_for('static', filename='images/home1.png') }}'); 
+        background-size: cover; background-position: center; height: 200px;">
+    </div>
+
+    <p class="text-center italic text-lg text-black pt-5">
+        Contact us at:
+    </p>
+    <p class="text-center italic text-xl text-black">
+        TechPlan@uw.edu
+    </p>
+    <p class="p-2 px-5 text-sm text-gray-600">
+        We're happy to help if you want to reach out! Let us know if you have any questions or if you have a resource to contribute to our lists, or if you want to be involved with the project in any way.
+    </p>
+    
+    <div class="my-8"></div> <!-- Additional buffer space at the bottom -->
+</div>
+{% endblock %}

@@ -7,34 +7,72 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 flex flex-col">
 
-    <!-- Hamburger Icon Button -->
-    <button id="menuToggle" class="p-4 focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-    </button>
+    <div class="flex items-center pt-8 p-3">
+        <!-- Hamburger Icon Button -->
+        <button id="menuToggle" class="focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+        <!-- Page Title (Dynamically inserted via content block) -->
+        <div class="flex-grow">
+            {% block title %}{% endblock %}
+        </div>
+    </div>
 
     <!-- Sidebar Menu -->
     <div id="sidebarMenu" class="fixed z-40 left-0 top-0 w-64 h-full bg-white transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <br>
+        <br>
         <!-- Logo at the top -->
-        <div class="bg-transparent p-4 pt-14 pb-10">
-            <img src="{{ url_for('static', filename='images/logo1 stacked right.png') }}" alt="Logo" class="block mx-auto" style="max-width:100%; height:auto;">
+        <div class="bg-transparent p-4">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='images/logo1 stacked right.png') }}" alt="Logo" class="block mx-auto" style="max-width:100%; height:auto;">
+            </a>
         </div>
         <!-- Sidebar content with icons -->
+        <a href="{{ url_for('home') }}" class="flex items-center p-4 text-2xl text-gray-700 place-content-center hover:bg-gray-100">
+            <i class="fa-solid fa-user-group mr-4"></i>About Us
+        </a>
         <a href="/education" class="flex items-center p-4 text-2xl text-gray-700 place-content-center hover:bg-gray-100">
             <i class="fa-solid fa-graduation-cap mr-4"></i>Education
         </a>
         <a href="/resources" class="flex items-center p-4 text-2xl text-gray-700 place-content-center hover:bg-gray-100">
             <i class="fa-solid fa-building-circle-arrow-right mr-4"></i>Resources
         </a>
+        
+        
+        <!-- Toggle Switch for Individual/Business -->
+        <div class="flex justify-center items-center p-4 pt-60 pb-30">
+            <label for="toggleSwitch" class="flex items-center cursor-pointer">
+                <!-- switch -->
+                <div class="relative">
+                    <input type="checkbox" id="toggleSwitch" class="sr-only">
+                    <!-- line -->
+                    <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                    <!-- dot -->
+                    <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                </div>
+                <!-- label -->
+                <div class="ml-3 text-gray-700 font-medium">
+                    <span id="toggleLabel">Individual</span>
+                </div>
+            </label>
+        </div>
+        <div class="mt-auto text-gray-600 text-right text-sm p-4 pt-20">
+            <div><i class="text-center fa-solid fa-envelope mr-2"></i>TechPlan@uw.edu</div>
+            <br>
+            © TechPlan 2024
+        </div>
     </div>
 
     <!-- Overlay -->
     <div id="menuOverlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"></div>
 
-    <div class="container mx-auto p-4">
+    <div class="container mx-auto p-3 flex-grow">
         {% block content %}{% endblock %}
     </div>
 
@@ -45,6 +83,8 @@
             const menuOverlay = document.getElementById('menuOverlay');
             const dropdownOverlay = document.getElementById('dropdownOverlay');
             const dropdowns = document.querySelectorAll('.dropdown');
+            const toggleSwitch = document.getElementById('toggleSwitch');
+            const toggleLabel = document.getElementById('toggleLabel');
 
             // Sidebar toggle
             menuToggle.addEventListener('click', function() {
@@ -79,7 +119,7 @@
 
                         // Center the dropdown content on the page and position it slightly down
                         dropdownContent.style.left = "50%";
-                        dropdownContent.style.top = "100%";
+                        dropdownContent.style.top = "30%";
                         dropdownContent.style.transform = "translate(-50%, 2px)";
 
                     } else {
@@ -104,6 +144,19 @@
                 content.addEventListener('click', function(event) {
                     event.stopPropagation();
                 });
+            });
+
+            // Toggle switch functionality
+            toggleSwitch.addEventListener('change', function() {
+                if(this.checked) {
+                    toggleLabel.textContent = 'Business';
+                    // Move the dot to the right to indicate the switch
+                    document.querySelector('.dot').style.transform = 'translateX(100%)';
+                } else {
+                    toggleLabel.textContent = 'Individual';
+                    // Move the dot back to the left
+                    document.querySelector('.dot').style.transform = 'translateX(0)';
+                }
             });
         };
     </script>

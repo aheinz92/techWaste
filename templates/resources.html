@@ -1,159 +1,204 @@
 {% extends "layout.html" %}
+{% block title %}
+<h2 class="text-right mr-2 text-3xl font-bold">Resources</h2>
+{% endblock %}
 
 {% block content %}
-<h2 class="text-right mr-2 text-3xl font-bold">Resources</h2>
-<br>
-<div class="bg-white p-4 rounded-lg shadow-md mb-4">
+<div class="bg-white p-3 rounded-lg shadow-md mb-5">
 
     <!-- Overlay -->
-<div id="dropdownOverlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"></div>
+    <div id="dropdownOverlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"></div>
 
     <!-- Search Filter Bar -->
-    <div class="flex space-x-2 relative">
-        <div id="locationDropdown" class="dropdown bg-gray-200 p-2 rounded flex-1">
-            <button class="dropbtn">
-                <i class="fa-solid fa-location-arrow mr-1"></i>
-                Location
-            </button>
-            <div id="locationContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded p-2">
-                <input type="text" placeholder="Start typing your city..." class="p-2 w-full bg-gray-200 rounded p-2">
-                <select class="p-2 w-full mt-1 bg-gray-200 rounded p-2">
-                    <option value="">Or, choose from a list:</option>
-                    <option value="Seattle, WA">Seattle, WA</option>
-                    <option value="Raleigh, NC">Raleigh, NC</option>
-                    <option value="New York, NY">New York, NY</option>
-                    <option value="San Francisco, CA">San Francisco, CA</option>
-                    <option value="Portland, OR">Portland, OR</option>
-                </select>
+    <div class="flex flex-col space-y-2 relative">
+
+        <!-- Location & Distance Dropdown and Tags Dropdown in a row -->
+        <div class="flex space-x-2">
+            <!-- Location & Distance Dropdown -->
+            <div id="locationDropdown" class="dropdown bg-gray-200 p-2 rounded flex-grow" style="flex-basis: 66.666%;">
+                <button class="dropbtn">
+                    <i class="fa-solid fa-location-arrow mr-1"></i>
+                    <i>Seattle, WA 98115</i>
+                </button>
+                <div id="locationContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded p-4">
+                    <input type="text" placeholder="Start typing your city or ZIP code..." class="p-2 w-full bg-gray-200 rounded p-3">
+                    <select class="p-2 w-full mt-1 bg-gray-200 rounded p-2">
+                        <option value="">Or, choose from a list:</option>
+                        <option value="Seattle, WA">Seattle, WA</option>
+                        <option value="Raleigh, NC">Raleigh, NC</option>
+                        <option value="New York, NY">New York, NY</option>
+                        <option value="San Francisco, CA">San Francisco, CA</option>
+                        <option value="Portland, OR">Portland, OR</option>
+                    </select>
+                    <label for="distanceSlider" class="block text-sm font-medium text-gray-700 p-2 pt-4">Select distance (miles):</label>
+                    <div class="relative pt-1">
+                        <input type="range" id="distanceSlider" name="distanceSlider" min="0" max="100" value="50" step="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 my-2 relative z-10">
+                        <div class="flex justify-between px-2 mb-1">
+                            <span class="text-xs text-gray-500">0 mi.</span>
+                            <span class="text-xs text-gray-500">50 mi.</span>
+                            <span class="text-xs text-gray-500">100 mi.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div id="distanceDropdown" class="dropdown bg-gray-200 p-2 rounded flex-1">
-            <button class="dropbtn">
-                <i class="fa-solid fa-arrows-left-right mr-1"></i>
-                Distance
-            </button>
-            <div id="distanceContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded p-2">
-                <label for="distanceSlider" class="block text-sm font-medium text-gray-700">Select distance (miles):</label>
-                <div class="relative pt-1">
-                    <input type="range" id="distanceSlider" name="distanceSlider" min="0" max="100" value="50" step="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 my-2 relative z-10">
-                    <div class="flex justify-between px-2 mb-1">
-                        <span class="text-xs text-gray-500">0 mi.</span>
-                        <span class="text-xs text-gray-500">50 mi.</span>
-                        <span class="text-xs text-gray-500">100 mi.</span>
+
+            <!-- Tags Dropdown -->
+            <div id="tagDropdown" class="dropdown bg-gray-200 p-2 rounded flex-grow" style="flex-basis: 33.333%;">
+                <button class="dropbtn">
+                    <i class="fa-solid fa-filter mr-1"></i>
+                    Filters
+                </button>
+                <div id="tagContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded flex justify-center items-center text-sm">
+                    <div class="grid grid-cols-2 gap-1 py-2">
+                        <div>
+                            <input type="checkbox" id="tag1" name="Recycling Center">
+                            <label for="tag1" style="background-color: {{ tag_colors['Recycling Center'] }}; margin: 0;" class="rounded-md px-1">Recycling Center</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tag2" name="Local Trading">
+                            <label for="tag2" style="background-color: {{ tag_colors['Local Trading'] }}; margin: 0;" class="rounded-md px-1">Local Trading</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tag3" name="Store or Business">
+                            <label for="tag3" style="background-color: {{ tag_colors['Store or Business'] }}; margin: 0;" class="rounded-md px-1">Store or Business</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tag4" name="Service">
+                            <label for="tag4" style="background-color: {{ tag_colors['Service'] }}; margin: 0;" class="rounded-md px-1">Service</label>
+                        </div>
+                        <div class="col-span-2 flex justify-center">
+                            <hr class="border-t border-gray-300 mr-3 w-full">
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tag5" name="Older Technology">
+                            <label for="tag5" style="background-color: {{ tag_colors['Older Technology'] }}; margin: 0;" class="rounded-md px-1">Older Technology</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tag6" name="Newer Technology">
+                            <label for="tag6" style="background-color: {{ tag_colors['Newer Technology'] }}; margin: 0;" class="rounded-md px-1">Newer Technology</label>
+                        </div>
+                        <div class="col-span-2 flex justify-center">
+                            <hr class="border-t border-gray-300 mr-3 w-full">
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tag7" name="Consumer Hardware">
+                            <label for="tag7" style="background-color: {{ tag_colors['Consumer Hardware'] }}; margin: 0;" class="rounded-md px-1">Consumer Hardware</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tag8" name="General Hardware">
+                            <label for="tag8" style="background-color: {{ tag_colors['General Hardware'] }}; margin: 0;" class="rounded-md px-1">General Hardware</label>
+                        </div>
+                        <div class="col-span-2 flex justify-center">
+                            <hr class="border-t border-gray-300 mr-3 w-full">
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tag9" name="Government">
+                            <label for="tag9" style="background-color: {{ tag_colors['Government'] }}; margin: 0;" class="rounded-md px-1">Government</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tag10" name="Individual">
+                            <label for="tag10" style="background-color: {{ tag_colors['Individual'] }}; margin: 0;" class="rounded-md px-1">Individual</label>
+                        </div>
+                        <div class="col-span-2 flex justify-center">
+                            <hr class="border-t border-gray-300 mr-3 w-full">
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tag11" name="Paid">
+                            <label for="tag11" style="background-color: {{ tag_colors['Paid'] }}; margin: 0;" class="rounded-md px-1">Paid</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="tag12" name="Free">
+                            <label for="tag12" style="background-color: {{ tag_colors['Free'] }}; margin: 0;" class="rounded-md px-1">Free</label>
+                        </div>                        
                     </div>
                 </div>
             </div>
         </div>
-        <div id="tagDropdown" class="dropdown bg-gray-200 p-2 rounded flex-1">
-            <button class="dropbtn">
-                <i class="fa-solid fa-filter mr-1"></i>
-                Tags
+
+        <!-- Apply Button on a new row with filter checkbox -->
+        <div class="flex justify-center items-center space-x-4">
+            <div class="mr-3">
+                <input type="checkbox" id="filterOnlyVerifiedCheckbox" name="filterOnlyVerified">
+                <label for="filterOnlyVerifiedCheckbox">Show only verified results?</label>
+            </div>
+            <button id="applyButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-8 rounded">
+                Apply
             </button>
-            <div id="tagContent" class="dropdown-content mt-2 absolute w-full hidden bg-white shadow rounded flex justify-center items-center">
-                <div class="grid grid-cols-2 gap-4 p-4">
-                    <div>
-                        <input type="checkbox" id="tag1" name="tag1">
-                        <label for="tag1">Recycling Center</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tag2" name="tag2">
-                        <label for="tag2">Local Trading</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tag3" name="tag3">
-                        <label for="tag3">Store or Business</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tag4" name="tag4">
-                        <label for="tag4">Service</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tag5" name="tag5">
-                        <label for="tag5">Older Technology</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tag6" name="tag6">
-                        <label for="tag6">Newer Technology</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tag7" name="tag7">
-                        <label for="tag7">Consumer Hardware</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tag8" name="tag8">
-                        <label for="tag8">General Hardware</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tag9" name="tag9">
-                        <label for="tag9">Government</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tag10" name="tag10">
-                        <label for="tag10">Individual</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tag11" name="tag11">
-                        <label for="tag11">Paid</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tag12" name="tag12">
-                        <label for="tag12">Free</label>
-                    </div>
-                </div>
+        </div>
+
+        <!-- Text Search Bar -->
+        <div class="mt-4">
+            <input type="text" placeholder="Or, search for something specific..." class="p-2 w-full bg-gray-200 rounded">
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<!-- List of Resources inside a container for dynamic updates -->
+<div id="resultsContainer" class="space-y-4">
+    {% for resource in resources %}
+    <div class="bg-white p-4 rounded-lg shadow">
+        <h2 class="font-semibold text-xl">{{ resource.name }}</h2>
+        <div class="flex justify-between items-center">
+            {% if resource.verified %}
+            <h2 class="font-semibold text-base text-green-500"><i class="fa-solid fa-shield-halved text-green-500"></i> Verified Resource</h2>
+            {% else %}
+            <h2 class="font-normal text-base text-gray-500"><i class="fa-solid fa-shield text-gray-500"></i> Unverified</h2>
+            {% endif %}
+            {% if resource.website %}
+            <a href="{{ resource.website }}" target="_blank" class="flex items-center text-blue-500 hover:text-blue-700">
+                Website
+                <i class="fa-solid fa-earth-americas pl-2"></i>
+            </a>
+            {% endif %}
+        </div>
+        <div class="flex justify-between items-center">
+            <p class="italic"><i class="fa-solid fa-location-dot"></i> {{ resource.distance }} miles away</p>
+            <div>
+                <a href="https://maps.google.com/?q={{ resource.name }}" target="_blank" class="text-blue-500 hover:text-blue-700">Directions<i class="fa-solid fa-diamond-turn-right pl-2"></i></a>
             </div>
         </div>
+        <div class="flex justify-between items-center text-gray-500">
+            <p>{{ resource.address }}</p>
+            <p>{{ resource.phone }}</p>
+        </div>
+        <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
+            {% for tag in resource.tags %}
+            <div class="text-sm rounded-md px-2 py-0.5 truncate" style="background-color: {{ tag_colors[tag] }};">{{ tag }}</div>
+            {% endfor %}
+        </div>
+        <p class="text-sm">{{ resource.description }}</p>
     </div>
+    {% else %}
+    <p>No resources found matching the criteria.</p>
+    {% endfor %}
 </div>
 
 
-<!-- List of Resources -->
 
-<div class="space-y-4">
-    <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">GreenTech Innovations</h2>
-        <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Newer Technology</div>
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Service</div>
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Free</div>
-        </div>
-        <p>GreenTech Innovations offers cutting-edge, eco-friendly technology solutions. Our services are designed to reduce environmental impact and promote sustainability. Visit us for more information.</p>
-    </div>
-    <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">EcoFriendly Gadgets</h2>
-        <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Consumer Hardware</div>
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Older Technology</div>
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Paid</div>
-        </div>
-        <p>Explore our range of eco-friendly gadgets designed to make your life greener. From solar-powered chargers to biodegradable phone cases, find everything you need to start your sustainable journey.</p>
-    </div>
-    <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">Local Swap Meet</h2>
-        <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Local Trading</div>
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Individual</div>
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Free</div>
-        </div>
-        <p>Join our local swap meet and exchange goods with your community. A great way to recycle and find new treasures without spending a dime. Check our schedule for the next event.</p>
-    </div>
-    <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">Tech Repair Services</h2>
-        <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Service</div>
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Consumer Hardware</div>
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Paid</div>
-        </div>
-        <p>Don't throw away your old gadgets! Our tech repair services can breathe new life into them, saving you money and reducing waste. Contact us for a quote today.</p>
-    </div>
-    <div class="bg-white p-4 rounded-lg shadow">
-        <h2 class="font-semibold text-lg">Sustainable Living Hub</h2>
-        <div class="taglist flex flex-wrap space-x-1 my-1 gap-y-1">
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Recycling Center</div>
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Service</div>
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">Free</div>
-            <div class="bg-gray-200 text-sm rounded-md px-2 py-0.5 truncate">General Hardware</div>
-        </div>
-        <p>Our Sustainable Living Hub offers resources and services for those looking to adopt a greener lifestyle. From recycling to eco-friendly home solutions, we're here to help.</p>
-    </div>
-</div>
 {% endblock %}
+
+
+
+
+
+
+
+<script>
+    document.getElementById("applyButton").addEventListener("click", function() {
+        var distance = document.getElementById("distanceSlider").value;
+        var selectedTags = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(checkbox => checkbox.name);
+    
+        fetch(`/resources?distance=${distance}&tags=${selectedTags.join(',')}`)
+            .then(response => response.text())
+            .then(html => {
+                // Replace part of the page with new HTML content
+                document.getElementById("resultsContainer").innerHTML = html;
+            });
+    });
+</script>
