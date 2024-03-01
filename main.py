@@ -7,22 +7,30 @@ app = Flask(__name__)
 
 
 
-def resource_meets_criteria(resource, distance, tags):
-    # Convert distance to float for comparison and handle None or empty string
+def resource_meets_criteria(resource, distance, tags, only_verified, search_name):
+    # Distance filtering
     selected_distance = float(distance) if distance else float('inf')
-    
-    # Ensure the resource's distance is within the selected range
     resource_distance = float(resource.get('distance', 0))
     if resource_distance > selected_distance:
         return False
 
-    # Ensure the resource has all the selected tags
-    resource_tags = set(resource.get('tags', []))
-    for tag in tags:
-        if tag not in resource_tags:
-            return False
+    # Tags filtering: Skip if no tags are selected
+    if tags:
+        resource_tags = set(resource.get('tags', []))
+        for tag in tags:
+            if tag not in resource_tags:
+                return False
+
+    # Verification filtering
+    if only_verified and not resource.get('verified', False):
+        return False
+
+    # Name filtering
+    if search_name and search_name.lower() not in resource.get('name', '').lower():
+        return False
 
     return True
+
 
 
 tag_colors = {
@@ -56,6 +64,8 @@ def resources():
     tags = request.args.getlist('tags') if 'tags' in request.args else []
     if isinstance(tags, str):  # In case tags come as a comma-separated string
         tags = tags.split(',')
+    only_verified = 'filterOnlyVerified' in request.args and request.args.get('filterOnlyVerified') == 'on'
+    search_name = request.args.get('searchName', '')
 
     # Construct the path to resources.JSON relative to the Flask app root
     resources_path = os.path.join(current_app.root_path, 'static', 'resources.JSON')
@@ -64,10 +74,11 @@ def resources():
         resources_data = json.load(f)
 
     # Filter resources based on criteria
-    filtered_resources = [resource for resource in resources_data if resource_meets_criteria(resource, distance, tags)]
+    filtered_resources = [resource for resource in resources_data if resource_meets_criteria(resource, distance, tags, only_verified, search_name)]
 
-    # Pass the tag_colors dictionary to the template
-    return render_template('resources.html', resources=filtered_resources, tag_colors=tag_colors)
+    # Convert dictionary keys to a list and pass it to the template
+    tag_keys = list(tag_colors.keys())
+    return render_template('resources.html', resources=filtered_resources, tag_colors=tag_colors, tag_keys=tag_keys)
 
 @app.route('/lesson1')
 def lesson1():
